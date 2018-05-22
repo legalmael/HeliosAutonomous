@@ -8,7 +8,7 @@ teleop:
       -
         axis: 1
         target: linear.x
-        scale: 10
+        scale: 1
       -
         axis: 0
         target: angular.z
@@ -26,11 +26,11 @@ teleop:
       -
         axis: 1
         target: linear.x
-        scale: 15
+        scale: 1
       -
         axis: 0
         target: angular.z
-        scale: 1.5
+        scale: 1
 
   stop:
     type: topic

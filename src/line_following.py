@@ -35,7 +35,7 @@ class LineFollowing:
         self.cur_pose.pose.orientation = quaternionToQuaternionMsg(tf.transformations.quaternion_from_euler(0, 0, pi/6))
 
         self.maxDistance = rospy.get_param('max_distance', 3)
-        self.maxRotation = rospy.get_param('max_rotation', pi/2)
+        self.maxRotation = rospy.get_param('max_rotation', 1)#pi/2
 
         self.rate = rospy.Rate(rospy.get_param('rate', 3))
 
@@ -53,7 +53,7 @@ class LineFollowing:
             rospy.loginfo("Pt2: %f, %f", pt2.position.x, pt2.position.y)
             rospy.loginfo("Distance: %f, DesiredRotation: %f", self.distanceLine(), self.desiredRotation())
             if not self.goalReached():
-                cmd_vel.linear.x = 10
+                cmd_vel.linear.x = 1
                 cmd_vel.angular.z = self.desiredRotation()
             self.pub_cmd.publish(cmd_vel)
 
