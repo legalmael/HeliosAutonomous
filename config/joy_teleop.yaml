@@ -83,3 +83,13 @@ teleop:
       -
         target: data
         value: 3.0
+
+  start_mission:
+    type: topic
+    message_type: std_msgs/Bool
+    topic_name: getFileData
+    deadman_buttons: [7]
+    message_value:
+      -
+        target: data
+        value: True

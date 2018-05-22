@@ -30,7 +30,7 @@ def utm2latlong(x, y):
 
 class PathPlanner:
     def __init__(self):
-        self.cur_state = rospy.get_param('start_state', LINE_FOLLOWING)
+        self.cur_state = rospy.get_param('~start_state', LINE_FOLLOWING)
         self.cur_pose = PoseStamped()
         self.last_wp = PoseStamped()
         self.next_wp = PoseStamped()
@@ -40,7 +40,7 @@ class PathPlanner:
         self.path.poses = self.current_line.poses
         self.line_number = 0
 
-        self.rate = rospy.Rate(rospy.get_param('rate', 5))
+        self.rate = rospy.Rate(rospy.get_param('~rate', 5))
 
         self.gotostart = False
 
