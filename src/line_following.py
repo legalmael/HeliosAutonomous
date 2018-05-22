@@ -8,11 +8,9 @@ import rospy
 from nav_msgs.msg import Path
 from geometry_msgs.msg import PoseStamped, Pose, Twist, Quaternion
 from math import pow, sqrt, atan2, pi, cos, sin, asin
-from matplotlib import pyplot as plt
 import numpy as np
 import tf
 
-plt.ion()
 
 def quaternionToQuaternionMsg(quat):
     q = Quaternion()
