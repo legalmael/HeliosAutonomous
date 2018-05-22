@@ -1,0 +1,7 @@
+<launch>
+  <group ns="helios">
+    <include file="$(find opencpn2ros)/launchers/opencpn_interface.launch" />
+    <include file="$(find helios_autonomous)/launchers/joy_teleop.launch" />
+    <node pkg="helios_autonomous" type="draw_state.py" name="draw_state"/>
+  </group>
+</launch>
