@@ -1,0 +1,85 @@
+teleop:
+  walk:
+    type: topic
+    message_type: geometry_msgs/Twist
+    topic_name: cmd_vel
+    deadman_buttons: [0]
+    axis_mappings:
+      -
+        axis: 1
+        target: linear.x
+        scale: 10
+      -
+        axis: 0
+        target: angular.z
+        scale: 1
+      -
+        axis: 2
+        target: linear.y
+        scale: 0.0
+  rolling:
+    type: topic
+    message_type: geometry_msgs/Twist
+    topic_name: cmd_vel
+    deadman_buttons: [0,9]
+    axis_mappings:
+      -
+        axis: 1
+        target: linear.x
+        scale: 15
+      -
+        axis: 0
+        target: angular.z
+        scale: 1.5
+
+  stop:
+    type: topic
+    message_type: geometry_msgs/Twist
+    topic_name: cmd_vel
+    deadman_buttons: [8]
+    message_value:
+      -
+        target: linear.x
+        value: 0.0
+      -
+        target: angular.z
+        value: 0.0
+      -
+        target: linear.y
+        value: 0.0
+  manual:
+    type: topic
+    message_type: std_msgs/Int8
+    topic_name: cmd_state
+    deadman_buttons: [0]
+    message_value:
+      -
+        target: data
+        value: 0.0
+  waypoints_nav:
+    type: topic
+    message_type: std_msgs/Int8
+    topic_name: cmd_state
+    deadman_buttons: [1]
+    message_value:
+      -
+        target: data
+        value: 1.0
+  line_following:
+    type: topic
+    message_type: std_msgs/Int8
+    topic_name: cmd_state
+    deadman_buttons: [2]
+    message_value:
+      -
+        target: data
+        value: 2.0
+  keep_position:
+    type: topic
+    message_type: std_msgs/Int8
+    topic_name: cmd_state
+    deadman_buttons: [3]
+    message_value:
+      -
+        target: data
+        value: 3.0

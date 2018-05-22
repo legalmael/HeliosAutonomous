@@ -1,0 +1,15 @@
+<launch>
+  <group ns="helios">
+    <include file="$(find opencpn2ros)/launchers/opencpn_interface.launch" />
+    <include file="$(find helios_autonomous)/launchers/joy_teleop.launch" />
+    <node pkg="opencpn2ros" type="fake_gps.py" name="fake_gps" />
+    <node pkg="helios_autonomous" type="navigation_autonomy_state.py" name="navigation_autonomy_state"  output="screen" />
+    <node pkg="helios_autonomous" type="line_following.py" name="line_following" />
+    <node pkg="helios_autonomous" type="waypoint_navigation.py" name="waypoint_navigation" />
+    <node pkg="helios_autonomous" type="draw_state.py" name="draw_state"/>
+    <node pkg="helios_autonomous" type="sim_control.py" name="sim_control">
+        <param name="initial_pose_x" value="377406.50352622365" />
+        <param name="initial_pose_y" value="5355035.988714943" />
+    </node>
+  </group>
+</launch>
