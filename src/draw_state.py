@@ -42,7 +42,7 @@ class DrawState:
 
         self.rate = rospy.Rate(rospy.get_param('~rate', 5))
         self.maxDistance = rospy.get_param('~max_distance', 3)
-        self.maxRotation = rospy.get_param('~max_rotation', pi/2)
+        self.maxRotationVel = rospy.get_param('~max_rotation_vel', pi/2)
 
         # Subscriber
         rospy.Subscriber('new_waypoints_mission', Path, self.cb_path)
@@ -93,7 +93,7 @@ class DrawState:
         return atan2(y2-y1, x2-x1)
 
     def desiredAngle(self):
-        return self.angleLine() + self.maxRotation*max(min(self.distanceLine()/self.maxDistance,1.0),-1.0)
+        return self.angleLine() + self.maxRotationVel*max(min(self.distanceLine()/self.maxDistance,1.0),-1.0)
 
     def getYaw(self):
         roll, pitch, yaw = tf.transformations.euler_from_quaternion(quaternionMsgToQuaternion(self.cur_pose.pose.orientation))

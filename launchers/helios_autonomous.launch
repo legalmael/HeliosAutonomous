@@ -2,8 +2,14 @@
   <group ns="helios">
     <include file="$(find ros_helios_config)/launch/command.launch" />
     <node pkg="helios_autonomous" type="navigation_autonomy_state.py" name="navigation_autonomy_state" />
-    <node pkg="helios_autonomous" type="line_following.py" name="line_following" />
-    <node pkg="helios_autonomous" type="waypoint_navigation.py" name="waypoint_navigation" />
+    <node pkg="helios_autonomous" type="line_following.py" name="line_following" >
+        <param name="max_rotation_vel" value="1" />
+        <param name="max_linear_vel" value="0.1" />
+    </node>
+    <node pkg="helios_autonomous" type="waypoint_navigation.py" name="waypoint_navigation" >
+        <param name="max_rotation_vel" value="1" />
+        <param name="max_linear_vel" value="0.1" />
+    </node>
     <node pkg="helios_autonomous" type="jsonWaypoints2ros.py" name="jsonWaypoints2ros" output="screen" >
         <param name="file_name" value="$(find helios_autonomous)/config/mission.json" />
     </node>
