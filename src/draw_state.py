@@ -32,7 +32,7 @@ def quaternionMsgToQuaternion(quat):
 
 class DrawState:
     def __init__(self):
-        self.cur_state = rospy.get_param('start_state', LINE_FOLLOWING)
+        self.cur_state = rospy.get_param('~start_state', LINE_FOLLOWING)
         self.cur_pose = PoseStamped()
         self.cur_waypoint_goal = Pose()
         self.current_line = Path()
@@ -40,9 +40,9 @@ class DrawState:
         self.path = Path()
         self.path.poses = self.current_line.poses
 
-        self.rate = rospy.Rate(rospy.get_param('rate', 5))
-        self.maxDistance = rospy.get_param('max_distance', 3)
-        self.maxRotation = rospy.get_param('max_rotation', pi/2)
+        self.rate = rospy.Rate(rospy.get_param('~rate', 5))
+        self.maxDistance = rospy.get_param('~max_distance', 3)
+        self.maxRotation = rospy.get_param('~max_rotation', pi/2)
 
         # Subscriber
         rospy.Subscriber('new_waypoints_mission', Path, self.cb_path)

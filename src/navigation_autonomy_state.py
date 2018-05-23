@@ -22,7 +22,6 @@ UTM30N = proj.Proj("+init=EPSG:32630")
 UTM31N = proj.Proj("+init=EPSG:32631")
 
 def latlong2utm(lat, lon):
-    # x, y, zone, zonel = utm.from_latlon(lat,lon)
     return UTM30N(lon, lat)
 
 def utm2latlong(x, y):

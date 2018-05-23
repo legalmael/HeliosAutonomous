@@ -32,10 +32,10 @@ class LineFollowing:
         self.cur_pose.pose.position.y = 0
         self.cur_pose.pose.orientation = quaternionToQuaternionMsg(tf.transformations.quaternion_from_euler(0, 0, pi/6))
 
-        self.maxDistance = rospy.get_param('max_distance', 3)
-        self.maxRotation = rospy.get_param('max_rotation', 1)#pi/2
+        self.maxDistance = rospy.get_param('~max_distance', 3)
+        self.maxRotation = rospy.get_param('~max_rotation', pi/2)
 
-        self.rate = rospy.Rate(rospy.get_param('rate', 3))
+        self.rate = rospy.Rate(rospy.get_param('~rate', 3))
 
         rospy.Subscriber('pose', PoseStamped, self.cb_pose)
         rospy.Subscriber('line', Path, self.cb_path)
