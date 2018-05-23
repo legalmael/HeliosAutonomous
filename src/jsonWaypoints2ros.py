@@ -29,6 +29,7 @@ class Json2Waypoints:
 
         rospy.Subscriber('getFileData', Bool, self.cb_get_file_data)
         rospy.Subscriber('setFileRadiale', String, self.cb_set_file_name)
+        rospy.Subscriber('setJsonRadiale', String, self.cb_set_json_radiale)
 
         self.pub_path = rospy.Publisher('new_waypoints_mission', Path, queue_size=1000000)
 
@@ -42,6 +43,10 @@ class Json2Waypoints:
     def cb_get_file_data(self, msg):
         if msg.data:
             self.publishWaypointList()
+
+    def cb_set_json_radiale(self, msg):
+        self.job = json.loads(msg.data)
+        self.extractLatLngs(self.job["missions"][0]["radiales"])
 
     def cb_set_file_name(self, msg):
         self.fileName = msg.data
