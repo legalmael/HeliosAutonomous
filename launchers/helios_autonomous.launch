@@ -1,6 +1,6 @@
 <launch>
   <group ns="helios">
-    <include file="$(find ros_helios_config)/launch/command.launch" />
+    <remap from="pose_est" to="pose" />
     <node pkg="helios_autonomous" type="navigation_autonomy_state.py" name="navigation_autonomy_state" />
     <node pkg="helios_autonomous" type="line_following.py" name="line_following" >
         <param name="max_rotation_vel" value="1" />
