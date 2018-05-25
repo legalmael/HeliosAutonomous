@@ -17,7 +17,7 @@ teleop:
         axis: 2
         target: linear.y
         scale: 0.0
-  rolling:
+  walk_fast:
     type: topic
     message_type: geometry_msgs/Twist
     topic_name: cmd_vel
