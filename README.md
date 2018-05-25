@@ -1,5 +1,6 @@
 Helios Autonomous
 =================
+![ROS](https://img.shields.io/badge/ROS-Kinetic--Kame-green.svg)
 
 This project aims to be the repository to basic control of the Catamaran boat Helios from ENSTA Bretagne.
 
